@@ -25,11 +25,14 @@
     ido-ubiquitous
     magit
     wrap-region
-    paredit
-    clojure-mode
+    ;; paredit
+    ;; clojure-mode
     ecb
     js3-mode
-    yasnippet
+    ;;flymake-jslint
+    ;;flymake-php
+    flymake-css 
+    flymake-json
 ))
 
 (defun fully-installed-p ()
@@ -57,19 +60,36 @@
   (require 'ido-ubiquitous)
   (ido-ubiquitous-mode t))
 
-(when (package-installed-p 'paredit)
-  (require 'paredit))
+;; (when (package-installed-p 'paredit)
+;;   (require 'paredit))
 
-(when (package-installed-p 'clojure-mode)
-  (require 'clojure-mode))
-  (add-hook 'clojure-mode-hook 'paredit-mode)
+;; (when (package-installed-p 'clojure-mode)
+;;   (require 'clojure-mode))
+;;   (add-hook 'clojure-mode-hook 'paredit-mode)
 
 (when (package-installed-p 'js3-mode)
   (require 'js3-mode))
 
-(when (package-installed-p 'yasnippet)
-  (require 'yasnippet))
-  (yas--initialize)
-  (yas/load-directory "~/.emacs.d/elpa/yasnippet-20130112.1823/snippets")
+;; (when (package-installed-p 'yasnippet)
+;;   (require 'yasnippet))
+;;   (yas--initialize)
+;;   (yas/load-directory "~/.emacs.d/elpa/yasnippet-20130112.1823/snippets")
+
+(when (package-installed-p 'ecb)
+  (require 'ecb))
+  (setq stack-trace-on-error t)
+
+;; (when (package-installed-p 'flymake-jslint)
+;;   (require 'flymake-jslint))
+
+;; (when (package-installed-p 'flymake-php)
+;;   (require 'flymake-php))
+
+(when (package-installed-p 'flymake-css)
+  (require 'flymake-css))
+
+(when (package-installed-p 'flymake-json)
+  (require 'flymake-json))
+
 
 (provide 'melpa)

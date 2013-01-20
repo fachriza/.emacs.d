@@ -28,6 +28,7 @@
     flymake-php
     flymake-css
     fill-column-indicator
+    flymake-phpcs
     )
   "A list of packages to ensure are installed at launch.")
 
@@ -93,5 +94,8 @@
 (when (package-installed-p 'fill-column-indicator)
   (require 'fill-column-indicator))
     (setq whitespace-style '(face trailing))
+
+(when (package-installed-p 'flymake-phpcs)
+  (require 'flymake-phpcs))
 
 (provide 'prelude-packages)
